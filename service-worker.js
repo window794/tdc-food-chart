@@ -1,8 +1,12 @@
-const CACHE_NAME = 'tdc-food-finder-v1';
+const CACHE_NAME = 'tdc-food-chart-v2';
 const urlsToCache = [
+  './',
   './index.html',
   './manifest.json',
-  './icon.svg'
+  './filtered_data.json',
+  './icon.svg',
+  './icon-192.png',
+  './icon-512.png'
 ];
 
 // インストール時にキャッシュ
@@ -36,6 +40,8 @@ self.addEventListener('activate', event => {
 
 // フェッチ時にキャッシュから返す（Network First戦略）
 self.addEventListener('fetch', event => {
+  // GET以外（POST等）はキャッシュ対象外
+  if (event.request.method !== 'GET') return;
   event.respondWith(
     fetch(event.request)
       .then(response => {

@@ -1,12 +1,12 @@
 {
-  "name": "TDC FOOD Finder",
-  "short_name": "TDC FOOD",
-  "description": "トーキョー・ディスカバリー・シティ 2025 非公式検索サイト",
+  "name": "TDC FOOD CHART",
+  "short_name": "FOOD CHART",
+  "description": "TDC FOOD CHART — 探る昼とめぐる夜。トーキョー・ディスカバリー・シティのコラボフードを探す非公式検索ツール",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#1a2836",
-  "theme_color": "#1a2836",
-  "orientation": "portrait-primary",
+  "background_color": "#0E1724",
+  "theme_color": "#0E1724",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "./icon-192.png",

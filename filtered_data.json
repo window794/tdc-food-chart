@@ -1,14 +1,16 @@
 {
   "summary": {
     "total": 40,
-    "open_shops": 36,
-    "closed_shops": 4,
+    "open_shops": 33,
+    "closed_shops": 7,
     "error_shops": 0
   },
   "closed_urls": [
     "https://www.laqua.jp/shops/list/halfsaintsbakes/",
     "https://www.laqua.jp/shops/list/kikunoya/",
-    "https://www.laqua.jp/spa/facilities/restaurants/casa_deli/"
+    "https://www.laqua.jp/shops/list/nichinichipao/",
+    "https://www.laqua.jp/spa/facilities/restaurants/casa_deli/",
+    "https://www.tokyo-dome.co.jp/shops/g-donchava.html"
   ],
   "data": [
     {
@@ -129,7 +131,7 @@
       "url": "https://www.laqua.jp/shops/list/nichinichipao/",
       "coaster": "クイズA",
       "price": 918,
-      "is_closed": false
+      "is_closed": true
     },
     {
       "area": "ラクーア",
@@ -329,7 +331,7 @@
       "url": "https://www.tokyo-dome.co.jp/shops/g-donchava.html",
       "coaster": "謎A",
       "price": 1280,
-      "is_closed": false
+      "is_closed": true
     },
     {
       "area": "FOOD STADIUM TOKYO",
@@ -339,7 +341,7 @@
       "url": "https://www.tokyo-dome.co.jp/shops/g-donchava.html",
       "coaster": "謎B",
       "price": 1500,
-      "is_closed": false
+      "is_closed": true
     },
     {
       "area": "FOOD STADIUM TOKYO",

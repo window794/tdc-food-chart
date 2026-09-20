@@ -1,10 +1,11 @@
-# ✨ TDC FOOD Finder - Redesigned
+# TDC FOOD CHART ／ 探る昼とめぐる夜
 
-> 🌟 トーキョー・ディスカバリー・シティ 2025 コラボフード検索サイト（非公式）
+> フードを、星図から探す。
+> トーキョー・ディスカバリー・シティ「探る昼とめぐる夜」コラボフード検索サイト（非公式）
 
 [![Stars](https://img.shields.io/github/stars/window794/tdc-food-chart?style=for-the-badge&color=D4AF37&labelColor=131d2a)](https://github.com/window794/tdc-food-chart/stargazers) [![Forks](https://img.shields.io/github/forks/window794/tdc-food-chart?style=for-the-badge&color=4a90d9&labelColor=131d2a)](https://github.com/window794/tdc-food-chartforks) [![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-222?style=for-the-badge&logo=github&logoColor=white&labelColor=131d2a)](https://window794.github.io/tdc-food-chart/) [![PWA](https://img.shields.io/badge/PWA-Ready-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white&labelColor=131d2a)](https://window794.github.io/tdc-food-chart/) [![Menus](https://img.shields.io/badge/収録メニュー-40件-D4AF37?style=for-the-badge&labelColor=131d2a)](https://window794.github.io/tdc-food-chart/) [![Unofficial](https://img.shields.io/badge/Fan%20Made-Unofficial-ff69b4?style=for-the-badge&labelColor=131d2a)](https://github.com/window794/tdc-food-chart)
 
-星座盤をテーマにした、QuizKnockコラボメニューの検索サイトです！
+天球図（Celestial Chart）をモチーフにした、QuizKnockコラボメニューの検索サイトです。
 
 ## 🌐 サイトURL
 **👉 https://window794.github.io/tdc-food-chart/**
@@ -23,21 +24,22 @@
 
 ## 🌟 特徴
 
-### 🎨 デザイン
-- **星座盤モチーフ**の洗練されたデザイン
-- **深い青緑ネイビー**の背景（神秘的な夜空）
-- **金色**のエレガントなアクセントカラー
-- **明朝体フォント**（EB Garamond + Shippori Mincho）で上品な雰囲気
-- **Material Symbols**アイコンで視認性向上
-- **グラスモーフィズム**を採用したカード型レイアウト
-- ホバー時に**ふわっと浮く**インタラクション
-- **60個の星**が静かに瞬くアニメーション
+### 🎨 デザイン — 天球図 / Celestial Chart
+- **深いネイビー**（`#0E1724`）とオフホワイトの静かな配色
+- **真鍮色 / シャンパンゴールド**の細線による控えめなアクセント
+- **明朝体フォント**（Cormorant Garamond + Zen Old Mincho）
+- 背景と余白に**星座線と星**をごく薄く散らした装飾（インラインSVG）
+- 起動時の**ブランドイントロ**（約2.9秒、メイン画面へ静かにクロスフェード）
+- 結果タイルは**真鍮の線が静かに反応する**控えめなホバー
+- `prefers-reduced-motion` 対応、キーボード操作・focus-visible 対応
 
 ### 🔍 機能
-- **リアルタイム検索** - 入力すると即座にフィルタリング
-- **多彩なフィルタ** - キーワード、考案者、エリア、店舗、コースター、価格帯
-- **柔軟なソート** - 価格順、名前順、エリア順など
-- **CSV出力** - 検索結果をダウンロード可能
+- **リアルタイム検索** - 入力すると即座にフィルタリング（メニュー・店舗・エリア・考案者・コースターを横断）
+- **多彩な絞り込み** - コースター種別（ボイス / 謎 / クイズ）と A・B、エリア、店舗、考案者、価格帯
+- **閉店店舗の扱い** - `is_closed` に基づく「閉店」表示。閉店店舗を含める／含めないを切り替え可能
+- **柔軟な並び替え** - エリア順、価格順、メニュー名順、店舗名順、考案者順
+- **詳細シート** - タイルをタップすると店舗ページへのリンク付きの詳細を表示
+- **CSV出力** - 検索結果をダウンロード可能（BOM付きUTF-8）
 - **📱 PWA対応** - インストールしてアプリとして使える！
 
 ---
@@ -80,23 +82,23 @@
 ---
 
 ### 使用フォント
-- **EB Garamond** - エレガントなセリフ体（タイトル）
-- **Shippori Mincho** - 上品な明朝体（和文タイトル）
-- **Noto Serif JP** - 読みやすい明朝体（本文）
+- **Cormorant Garamond** - ブランド名・価格・件数・ラベル（欧文）
+- **Zen Old Mincho** - 本文すべて（和文）
 
 ---
 
 ## 📁 ファイル構成
 
 ```
-📦 TDC Food Finder
-├── 🌐 index.html                     - メインHTML（全データ込み）
+📦 TDC FOOD CHART
+├── 🌐 index.html                     - メインHTML（filtered_data.json を読み込んで表示）
+├── 📊 filtered_data.json             - メニューデータ（閉店フラグ is_closed 付き）
 ├── 📋 manifest.json                  - PWA設定
 ├── ⚙️ service-worker.js              - オフライン対応
 ├── 🎨 icon.svg                       - アプリアイコン
 ├── 🌟 celestial-chart.png            - 星座盤画像
-├── 🐍 check_urls.py                  - 閉店店舗チェックスクリプト
-├── 🔄 update_html.py                 - データ自動更新スクリプト
+├── 🐍 check_urls.py                  - 閉店店舗チェックスクリプト（filtered_data.json を生成）
+├── 🔄 update_html.py                 - 旧版のデータ埋め込みスクリプト（現在は未使用）
 ├── 🖼️ resize_icon.py                 - PWAアイコン生成
 └── 📖 README.md                      - このファイル
 ```
@@ -126,18 +128,17 @@
 ### 🌌 配色
 | 色 | 用途 | カラーコード |
 |---|---|---|
-| 🌃 ミッドナイトブルー | 背景グラデーション開始 | `#1a2836` |
-| 🌊 ディープネイビー | 背景グラデーション中間 | `#131d2a` |
-| 🌑 ダークナイト | 背景グラデーション終了 | `#0d1419` |
-| ✨ ゴールド | アクセント・強調 | `#D4AF37` |
-| 💫 ライトグレー | テキスト | `#d4dae5` |
-| 🎨 アイスグレー | ラベル・アイコン | `#a8b4c8` |
+| 🌃 ディープネイビー | 背景・カード | `#0E1724` |
+| 🌊 ネイビー（明） | カードのhover / 詳細シート | `#131E2E` / `#101C2B` |
+| 🕯 真鍮 | 細線・小さなアクセント | `#A88B5C` |
+| ✨ シャンパンゴールド | 価格・件数・リンク | `#D8C69E` |
+| 💫 オフホワイト | 本文・見出し | `#EEF1F5` / `#F2EFE8` |
+| 🎨 グレイブルー | 補助テキスト | `#9AA7B8` |
 
-### ✨ アニメーション効果
-- **星の瞬き** - 4秒周期で優雅に明滅
-- **カードの浮遊** - ホバー時に10px上昇
-- **フェードイン** - ページ読み込み時にスムーズに表示
-- **光の流れ** - カードホバー時に金色の光が横切る
+### ✨ モーション
+- **ブランドイントロ** - 星と星座線が静かに現れ、タイトルがぼやけた状態から鮮明になり、メイン画面へクロスフェード
+- **カードのhover** - 真鍮色の細線と、ごくわずかな背景の明るさの変化のみ（発光や大きな移動はしない）
+- **prefers-reduced-motion** - すべてのアニメーションを短絡
 
 ---
 
@@ -180,7 +181,7 @@
 
 ### ✨ Made with 💛 for QuizKnock Fans
 
-**星座盤のように輝くメニューを探そう！**
+**フードを、星図から探す。**
 
 ---
 
